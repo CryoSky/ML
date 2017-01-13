@@ -1,3 +1,7 @@
+import numpy
+import scipy
+import math
+
 class ProbabilityModel:
 
     # Returns a single sample (independent of values returned on previous calls).
@@ -14,7 +18,11 @@ class UnivariateNormal(ProbabilityModel):
     # Initializes a univariate normal probability model object
     # parameterized by mu and (a positive) sigma
     def __init__(self,mu,sigma):
-        pass
+        self.mu = mu
+        self.sigma = sigma
+    def sample(self):
+        p = numpy.random.uniform()
+        return scipy.special.erfinv(p*2 - 1)
     
 # The sample space of this probability model is the set of D dimensional real
 # column vectors (modeled as numpy.array of size D x 1), and the probability 
@@ -26,9 +34,28 @@ class MultiVariateNormal(ProbabilityModel):
     # parameterized by Mu (numpy.array of size D x 1) expectation vector 
     # and symmetric positive definite covariance Sigma (numpy.array of size D x D)
     def __init__(self,Mu,Sigma):
-        pass
+        self.D = len(Mu)
+        self.Mu = Mu
+        self.Sigma = Sigma
+        self.univariate = UnivariateNormal(0, 1) 
     
+    def sample(self):
+        A = self.cholesky(self.Sigma)
+        Z = [self.univariate.sample() for i in xrange(self.D)]
+        return self.Mu + numpy.dot(A, Z)
 
+    def cholesky(self, A):
+        L = numpy.zeros((self.D, self.D))
+        for i in xrange(self.D):
+            for j in xrange(self.D):
+                if i == j:
+                    L[j][j] = math.sqrt(A[j][j] - sum([elem^2 \
+                            for elem in L[j][:self.D-1]]))
+                else:
+                    L[i][j] = (A[i][j] - sum([L[i][k]*L[j][k] \
+                            for k in xrange(1, j-1)])) / L[j][j]
+        return L
+        
 # The sample space of this probability model is the finite discrete set {0..k-1}, and 
 # the probability measure is defined by the atomic probabilities 
 # P(i) = ap[i]
@@ -38,7 +65,16 @@ class Categorical(ProbabilityModel):
     # probability model object with distribution parameterized by the atomic probabilities vector
     # ap (numpy.array of size k).
     def __init__(self,ap):
-        pass
+        self.ap = ap
+    
+    def sample(self):
+        sum = 0
+        index = -1
+        rand = numpy.random.uniform()
+        while rand > sum:
+            index += 1
+            sum += self.ap[index]
+        return index
 
 
 # The sample space of this probability model is the union of the sample spaces of 
@@ -51,4 +87,9 @@ class MixtureModel(ProbabilityModel):
     # atomic probabilities vector ap (numpy.array of size k) and by the tuple of 
     # probability models pm
     def __init__(self,ap,pm):
-        pass
+        self.pm = pm
+        self.categorical = Categorical(ap)
+
+    def sample(self):
+        i = self.categorical.sample()
+        return self.pm[i].sample()
