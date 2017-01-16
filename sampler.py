@@ -49,11 +49,9 @@ class MultiVariateNormal(ProbabilityModel):
         for i in xrange(self.D):
             for j in xrange(self.D):
                 if i == j:
-                    L[j][j] = math.sqrt(A[j][j] - sum([elem^2 \
-                            for elem in L[j][:self.D-1]]))
+                    L[j][j] = math.sqrt(A[j][j] - sum([elem^2 for elem in L[j][:self.D-1]]))
                 else:
-                    L[i][j] = (A[i][j] - sum([L[i][k]*L[j][k] \
-                            for k in xrange(1, j-1)])) / L[j][j]
+                    L[i][j] = (A[i][j] - sum([L[i][k]*L[j][k] for k in xrange(1, j-1)])) / L[j][j]
         return L
         
 # The sample space of this probability model is the finite discrete set {0..k-1}, and 
@@ -93,3 +91,9 @@ class MixtureModel(ProbabilityModel):
     def sample(self):
         i = self.categorical.sample()
         return self.pm[i].sample()
+        
+uni = UnivariateNormal(0, 1)
+multi = MultiVariateNormal([[1,-1],[1,-1]], 1)
+
+num = uni.sample()
+print(num)
