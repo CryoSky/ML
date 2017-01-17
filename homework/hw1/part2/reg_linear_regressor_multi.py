@@ -89,6 +89,7 @@ class RegularizedLinearRegressor_Multi:
         #  1 line of code expected                                                #
         ###########################################################################
 
+        y_pred = np.dot(X, self.theta)
 
         ###########################################################################
         #                           END OF YOUR CODE                              #
@@ -133,6 +134,8 @@ class RegularizedLinearReg_SquaredLoss(RegularizedLinearRegressor_Multi):
         #  2 lines of code expected                                               #
         ###########################################################################
 
+        e = y - np.dot(X, theta)
+        J = (np.dot(e.T, e)+ reg * np.dot(theta.T, theta)) / (2 * num_examples)
 
         ###########################################################################
         #                           END OF YOUR CODE                              #
@@ -150,7 +153,10 @@ class RegularizedLinearReg_SquaredLoss(RegularizedLinearRegressor_Multi):
         #  3 lines of code expected                                               #
         ###########################################################################
 
-
+        e = y - np.dot(X, theta)
+        grad[0] = ((-1) * np.dot(X.T, e) / num_examples)[0]
+        grad = ((-1) * np.dot(X.T, e) + reg * theta) / num_examples
+        
         ###########################################################################
         #                           END OF YOUR CODE                              #
         ###########################################################################
