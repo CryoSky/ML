@@ -85,15 +85,10 @@ class MixtureModel(ProbabilityModel):
     # atomic probabilities vector ap (numpy.array of size k) and by the tuple of 
     # probability models pm
     def __init__(self,ap,pm):
-        self.pm = pm
         self.categorical = Categorical(ap)
+        self.pm = pm
 
     def sample(self):
-        i = self.categorical.sample()
-        return self.pm[i].sample()
+        categorical_sample = self.categorical.sample()
+        return self.pm[categorical_sample].sample()
         
-uni = UnivariateNormal(0, 1)
-multi = MultiVariateNormal([[1,-1],[1,-1]], 1)
-
-num = uni.sample()
-print(num)
