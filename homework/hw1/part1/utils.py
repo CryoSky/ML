@@ -20,7 +20,7 @@ def feature_normalize(X):
 
     mu = np.mean(X, axis=0)
     sigma = np.std(X, axis=0)
-    X_norm = (X - np.tile(mu, (X.shape[0], 1))) / np.tile(sigma, (X.shape[0], 1))
+    X_norm = (X - mu) / sigma
   
     ########################################################################
     return X_norm, mu, sigma

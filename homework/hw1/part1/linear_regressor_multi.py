@@ -88,7 +88,7 @@ class LinearRegressor_Multi:
         #  One line of code expected                                              #
         ###########################################################################
         
-        y_pred = np.dot(X, self.theta)
+        y_pred = X.dot(self.theta)
 
         ###########################################################################
         #                           END OF YOUR CODE                              #
@@ -106,7 +106,7 @@ class LinearRegressor_Multi:
         #  One line of code expected                                              #
         ###########################################################################
 
-        theta_n = np.dot(np.linalg.inv(X.T.dot(X)).dot(X.T), y)
+        theta_n = np.linalg.inv(X.T.dot(X)).dot(X.T).dot(y)
 
         ###########################################################################
 
@@ -133,9 +133,9 @@ class LinearReg_SquaredLoss(LinearRegressor_Multi):
         #  2-3 lines of code expected                                             #
         ###########################################################################
 
-        e = y - np.dot(X, self.theta)
-        J = np.dot(e.T, e) / (X.shape[0]*2)
-        grad = np.dot(X.T, e) / (X.shape[0]*(-1))
+        ls = y - X.dot(self.theta)
+        J = ls.T.dot(ls) / (num_examples*2)
+        grad = ((-1) * X.T.dot(ls)) / num_examples
 
         ###########################################################################
         #                           END OF YOUR CODE                              #
