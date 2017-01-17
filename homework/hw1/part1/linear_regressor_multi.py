@@ -41,7 +41,8 @@ class LinearRegressor_Multi:
             # Update the parameters using the gradient and the learning rate.       #
             #   One line of code expected
             #########################################################################
-
+            
+            self.theta = self.theta - learning_rate * grad
 
             #########################################################################
             #                       END OF YOUR CODE                                #
@@ -86,7 +87,8 @@ class LinearRegressor_Multi:
         # Implement this method. Store the predicted outputs in y_pred.           #
         #  One line of code expected                                              #
         ###########################################################################
-
+        
+        y_pred = np.dot(X, self.theta)
 
         ###########################################################################
         #                           END OF YOUR CODE                              #
@@ -104,7 +106,7 @@ class LinearRegressor_Multi:
         #  One line of code expected                                              #
         ###########################################################################
 
-        theta_n = np.zeros((X.shape[1],))
+        theta_n = np.dot(np.linalg.inv(X.T.dot(X)).dot(X.T), y)
 
         ###########################################################################
 
@@ -131,7 +133,9 @@ class LinearReg_SquaredLoss(LinearRegressor_Multi):
         #  2-3 lines of code expected                                             #
         ###########################################################################
 
-
+        e = y - np.dot(X, self.theta)
+        J = np.dot(e.T, e) / (X.shape[0]*2)
+        grad = np.dot(X.T, e) / (X.shape[0]*(-1))
 
         ###########################################################################
         #                           END OF YOUR CODE                              #
