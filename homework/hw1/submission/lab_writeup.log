@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  17 JAN 2017 02:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  17 JAN 2017 18:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -300,15 +300,15 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 14.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 18.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 19.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 18.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 19.
 
-Overfull \hbox (52.85435pt too wide) in paragraph at lines 38--38
+Overfull \hbox (52.85435pt too wide) in paragraph at lines 39--39
 [] 
  []
 
@@ -317,20 +317,20 @@ Overfull \hbox (52.85435pt too wide) in paragraph at lines 38--38
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 [2]
 
-LaTeX Warning: Reference `fig:lr001' on page 3 undefined on input line 101.
+LaTeX Warning: Reference `fig:lr001' on page 3 undefined on input line 102.
 
 
-LaTeX Warning: Reference `fig:lr3' on page 3 undefined on input line 101.
+LaTeX Warning: Reference `fig:lr3' on page 3 undefined on input line 102.
 
 
-LaTeX Warning: Reference `fig:fit1' on page 3 undefined on input line 106.
+LaTeX Warning: Reference `fig:fit1' on page 3 undefined on input line 107.
 
 
-LaTeX Warning: Reference `fig:learn100' on page 3 undefined on input line 106.
+LaTeX Warning: Reference `fig:learn100' on page 3 undefined on input line 107.
 
 [3]
 
-LaTeX Warning: Reference `fig:bestlambda' on page 4 undefined on input line 107
+LaTeX Warning: Reference `fig:bestlambda' on page 4 undefined on input line 108
 .
 
 [4] (./lab_writeup.aux)
@@ -339,10 +339,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 3150 strings out of 493014
- 42892 string characters out of 6133351
+ 3151 strings out of 493014
+ 42894 string characters out of 6133351
  111065 words of memory out of 5000000
- 6640 multiletter control sequences out of 15000+600000
+ 6641 multiletter control sequences out of 15000+600000
  11698 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,16n,26p,734b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -361,7 +361,7 @@ e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 /2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2
 016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/20
 16/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on lab_writeup.pdf (4 pages, 158762 bytes).
+Output written on lab_writeup.pdf (4 pages, 160347 bytes).
 PDF statistics:
  77 PDF objects out of 1000 (max. 8388607)
  55 compressed objects within 1 object stream
