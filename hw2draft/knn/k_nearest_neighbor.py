@@ -124,13 +124,11 @@ class KNearestNeighbor(object):
     #       and two broadcast sums.                                         #
     #########################################################################
 
-    def aa(b):
-        
-        x = self.X_train
-    
-        return np.array((np.sum((x-b)**2,axis=1)))
-    dists=map(aa,X)
-    print dists.shape
+    a=np.sum((self.X_train**2),axis=1)[np.newaxis, :]
+    b=np.sum((X**2),axis=1)[:, np.newaxis]
+    c=X.dot(self.X_train.T)
+    d=a+b
+    dists=np.sqrt(d-2*c)
     
     #########################################################################
     #                         END OF YOUR CODE                              #
