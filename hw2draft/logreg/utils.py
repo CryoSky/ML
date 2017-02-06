@@ -90,16 +90,16 @@ def select_lambda_crossval(X,y,lambda_low,lambda_high,lambda_step,penalty):
 
     # Your code here
     # Implement the algorithm above.
-    avg_accuracy = {}
+    accuracies = {}
     for reg in np.arange(lambda_low, lambda_high, lambda_step):
-        avg_accuracy[reg] = 0
-        for train_index, test_index in cross_validation.KFold(len(y), n_folds=10):
-            reg_lr = linear_model.LogisticRegression(penalty=penalty, C=1/reg, fit_intercept=True)
-            reg_lr.fit(X[train_index], y[train_index])
-            y_pred = reg_lr.predict(X[test_index])
-            avg_accuracy[reg] += np.mean(y_pred==y[test_index])/10.0
+        accuracies[reg] = 0
+        for train, test in cross_validation.KFold(len(y), n_folds=10):
+            model = linear_model.LogisticRegression(penalty=penalty, C=1./reg, solver='lbfgs' if penalty=='l2' else 'liblinear', fit_intercept=True)
+            model.fit(X[train], y[train])
+            y_pred = model.predict(X[test])
+            accuracies[reg] += 1. * sum([y_pred[i] == y[test][i] for i in xrange(len(y[test]))]) / len(y[test])
 
-    best_lambda = np.argmax(avg_accuracy)
+    best_lambda = max(accuracies, key=accuracies.get)
 
     # end your code
 
