@@ -1,0 +1,24 @@
+\BOOKMARK [1][-]{section.1}{MAP and MLE Parameter Estimation}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Deriving a * Estimate}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Deriving the * MAP}{section.1}% 3
+\BOOKMARK [1][-]{section.2}{Logistic Regression and Naive Bayes}{}% 4
+\BOOKMARK [2][-]{subsection.2.1}{Posterior Probability of Logistic Regression}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.2}{Posterior Probability of Naive Bayes}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.3}{Proving Similarity to Logistic Regression}{section.2}% 7
+\BOOKMARK [1][-]{section.3}{Reject option in classifiers}{}% 8
+\BOOKMARK [2][-]{subsection.3.1}{minimum risk}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.2}{0 to 1}{section.3}% 10
+\BOOKMARK [1][-]{section.4}{Softmax regression and OVA logistic regression}{}% 11
+\BOOKMARK [2][-]{subsection.4.1}{Prob 3.1 B }{section.4}% 12
+\BOOKMARK [1][-]{section.5}{Prob 3.2 softmatrix}{}% 13
+\BOOKMARK [2][-]{subsection.5.1}{loss function}{section.5}% 14
+\BOOKMARK [1][-]{section.6}{Prob 3.3 softmatrix gradient of loss funciton}{}% 15
+\BOOKMARK [2][-]{subsection.6.1}{check it with numerical gradients}{section.6}% 16
+\BOOKMARK [2][-]{subsection.6.2}{prob 3.4 loss function vectorized version}{section.6}% 17
+\BOOKMARK [2][-]{subsection.6.3}{prob 3.5 loss function vectorized version}{section.6}% 18
+\BOOKMARK [2][-]{subsection.6.4}{prob 3.6 minibatch}{section.6}% 19
+\BOOKMARK [2][-]{subsection.6.5}{prob 3.7 select lambda and lr}{section.6}% 20
+\BOOKMARK [2][-]{subsection.6.6}{prob 3.8 Training with the best value}{section.6}% 21
+\BOOKMARK [2][-]{subsection.6.7}{visualizing the learned matrix}{section.6}% 22
+\BOOKMARK [2][-]{subsection.6.8}{extra}{section.6}% 23
+\BOOKMARK [2][-]{subsection.6.9}{prob 3.10 compare ova with softmax}{section.6}% 24

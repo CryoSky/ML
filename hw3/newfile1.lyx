@@ -1,0 +1,193 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+R(w_{i}|x)=\sum_{j=1}^{c}\lambda(w_{i}|w_{j})P(w_{j}|x)=0*P(w_{i}|x)+\sum_{j=1,j!=i}^{c}\lambda_{s}P(w_{j}|x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\backslash
+lambda(w_{i}|w_{j}) is used to mean the cost of choosing class w_i where
+ the true class is wj
+\end_layout
+
+\begin_layout Standard
+Hence:
+\begin_inset Formula 
+\[
+R(w_{i}|x)=\lambda_{s}(1-P(w_{j}|x))
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Associate x with the class ωi if highest posterior class probability and
+ the average risk is less than the cost of rejection:
+\begin_inset Formula 
+\[
+\lambda_{s}(1-P(w_{j}|x))\leq\lambda_{r}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(w_{j}|x)\geq1-\frac{\lambda_{r}}{\lambda_{s}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2 if 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+$
+\backslash
+frac{
+\backslash
+lambda_{r}}{
+\backslash
+lambda_{s}}=0$, when making prediction, if we don't have confidence, we
+ should make rejection, because it is better than making a wrong prediction.
+\end_layout
+
+\begin_layout Standard
+if 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+$
+\backslash
+frac{
+\backslash
+lambda_{r}}{
+\backslash
+lambda_{s}}=1$, if we don't have confidence in prediction, we should choose
+ to prediction.
+ Because maybe we can make a right predition, so the cost expetation is
+ lower than rejection.
+\end_layout
+
+\begin_layout Standard
+we find out, when the ratio is changing from 0 to 1, the number of rejection
+ is decreasing.
+\end_layout
+
+\end_body
+\end_document
