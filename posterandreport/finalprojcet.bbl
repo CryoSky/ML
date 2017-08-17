@@ -1,0 +1,24 @@
+\begin{thebibliography}{5}
+
+\bibitem{Krizhevsky2012b}
+A.~Krizhevsky, I.~Sutskever, G.E. Hinton, \emph{Imagenet classification with
+  deep convolutional neural networks}, in \emph{Advances in neural information
+  processing systems} (2012), pp. 1097--1105
+
+\bibitem{Ciresan2011}
+D.C. Ciresan, U.~Meier, L.M. Gambardella, J.~Schmidhuber, \emph{Convolutional
+  neural network committees for handwritten character classification}, in
+  \emph{Document Analysis and Recognition (ICDAR), 2011 International
+  Conference on} (IEEE, 2011), pp. 1135--1139
+
+\bibitem{Szegedy}
+C.~Szegedy, S.~Ioffe, V.~Vanhoucke, arXiv preprint arXiv:1602.07261  (????)
+
+\bibitem{Srivastava2014}
+N.~Srivastava, G.E. Hinton, A.~Krizhevsky, I.~Sutskever, R.~Salakhutdinov,
+  Journal of Machine Learning Research \textbf{15}, 1929 (2014)
+
+\bibitem{Zeiler2013}
+M.D. Zeiler, R.~Fergus, arXiv preprint arXiv:1301.3557  (2013)
+
+\end{thebibliography}
