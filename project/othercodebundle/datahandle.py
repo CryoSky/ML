@@ -93,9 +93,19 @@ def load_extra_shared(filename="extra.csv"):
     print("extradone")
     return None
 
-
-
-
+def plot100():
+    plt.figure(figsize=(8,8),dpi=300)
+    for k in range(10):
+        for j in range(10):
+            curr = bbb[10*k+j].reshape(32, 32)
+            curr = curr * 255;
+            axes=plt.subplot(10, 10, 10 * (k) + j + 1)
+            plt.imshow(curr,cmap=cm.gray)
+            axes.set_xticks([])
+            axes.set_yticks([]) 
+    #plt.show();
+    plt.savefig("final1.png")
+    return None
 
 
 
