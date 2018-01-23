@@ -43,7 +43,7 @@ class LinearClassifier(object):
       y_batch = y[rand_idx]
 
       # evaluate loss and gradient
-      loss, grad = self.loss(X, y, reg)
+      loss, grad = self.loss(X_batch, y_batch, reg)
       loss_history.append(loss)
 
       # perform parameter update
