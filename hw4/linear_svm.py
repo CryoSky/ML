@@ -62,7 +62,7 @@ def svm_loss_naive(theta, X, y, reg):
   - gradient with respect to weights theta; an array of same shape as theta
   """
 
-  delta = 10
+  delta = 1.0
   dtheta = np.zeros(theta.shape) # initialize the gradient as zero
 
   # compute the loss function
@@ -119,7 +119,7 @@ def svm_loss_vectorized(theta, X, y, reg):
   """
   J = 0.0
   dtheta = np.zeros(theta.shape) # initialize the gradient as zero
-  delta = 10
+  delta = 1.0
   num_classes = theta.shape[1]
   num_train = X.shape[0]
   #############################################################################

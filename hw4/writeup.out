@@ -1,0 +1,24 @@
+\BOOKMARK [1][-]{section.1}{Kernelizing the k-nearest neighbors}{}% 1
+\BOOKMARK [1][-]{section.2}{Constructing kernels}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Fitting an SVM classifier by hand}{}% 6
+\BOOKMARK [2][-]{subsection.3.1}{}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.2}{}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.3}{}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.4}{}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.5}{}{section.3}% 11
+\BOOKMARK [1][-]{section.4}{Support vector machines for binary classification}{}% 12
+\BOOKMARK [2][-]{subsection.4.1}{The hinge loss function and gradient}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.2}{impact of varying C}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.3}{Gaussian kernel}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.4}{selecting hyper parameters for SVM}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.5}{Spam Classification with SVM}{section.4}% 17
+\BOOKMARK [3][-]{subsubsection.4.5.1}{Training SVM for spam classfication}{subsection.4.5}% 18
+\BOOKMARK [1][-]{section.5}{Support vector machines for multi-class classification}{}% 19
+\BOOKMARK [2][-]{subsection.5.1}{5A naive version}{section.5}% 20
+\BOOKMARK [2][-]{subsection.5.2}{5B, vector version}{section.5}% 21
+\BOOKMARK [2][-]{subsection.5.3}{5c Prediction function}{section.5}% 22
+\BOOKMARK [2][-]{subsection.5.4}{5D tning hyper parameters}{section.5}% 23
+\BOOKMARK [2][-]{subsection.5.5}{5E }{section.5}% 24
