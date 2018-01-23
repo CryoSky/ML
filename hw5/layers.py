@@ -228,7 +228,22 @@ def conv_forward_naive(x, theta, theta0, conv_param):
   # Hint: you can use the function np.pad for padding.                        #
   #############################################################################
 
-  pass
+  M, C, H, W = x.shape
+  K, C, HH, WW = theta.shape
+  pad, stride = conv_param['pad'], conv_param['stride']
+  H_ = int(1 + (H + 2. * pad - HH) / stride)
+  W_ = int(1 + (W + 2. * pad - WW) / stride)
+  out = np.zeros([M, K, H_, W_])
+  X = np.pad(x, ((0, 0), (0, 0), (pad, pad), (pad, pad)), 'constant')
+
+  for k in xrange(K):
+      theta_ = theta[k].reshape(C * HH * WW)
+      for m in xrange(M):
+          for h in xrange(0, H, stride):
+              for w in xrange(0, W, stride):
+                  x_ = X[m, :, h:h + HH, w:w + WW].reshape(C * HH * WW)
+                  out[m, k, h / stride, w / stride] = theta_.dot(x_.T) + theta0[k]
+    
   #############################################################################
   #                             END OF YOUR CODE                              #
   #############################################################################
@@ -254,7 +269,28 @@ def conv_backward_naive(dout, cache):
   # TODO: Implement the convolutional backward pass.                          #
   #############################################################################
 
-  pass
+  x, theta, theta0, conv_param = cache
+  M, C, H, W = x.shape
+  K, C, HH, WW = theta.shape
+  M, K, H_, W_ = dout.shape
+  P, S = conv_param['pad'], conv_param['stride']
+  X = np.pad(x, ((0, 0), (0, 0), (P, P), (P, P)), 'constant')
+  dx, dtheta, dtheta0 = np.zeros_like(X), np.zeros_like(theta), np.zeros_like(theta0)
+
+  for k in xrange(K):
+      theta_ = theta[k]
+      for m in xrange(M):
+          for h in xrange(0, H, S):
+              for w in xrange(0, W, S):
+                  x_ = X[m, :, h:h + HH, w:w + WW]
+                  dout_ = dout[m, k, h / S, w / S]
+                  dtheta0[k] += dout_
+                  for hh in xrange(HH):
+                      for ww in xrange(WW):
+                          dx[m, :, h + hh, w + ww] += dout_ * theta_[:, hh, ww]
+                          dtheta[k, :, hh, ww] += dout_ * x_[:, hh, ww]
+  dx = dx[:, :, 1:-1, 1:-1]
+
   #############################################################################
   #                             END OF YOUR CODE                              #
   #############################################################################
@@ -281,7 +317,18 @@ def max_pool_forward_naive(x, pool_param):
   # TODO: Implement the max pooling forward pass                              #
   #############################################################################
 
-  pass
+  M, C, H, W = x.shape
+  Fh, Fw, S = pool_param['pool_height'], pool_param['pool_width'], pool_param['stride']
+  H2 = int(1 + (H - Fh) / S)
+  W2 = int(1 + (W - Fw) / S)
+  out = np.zeros([M, C, H2, W2])
+
+  for m in xrange(M):
+      for h in xrange(0, H, S):
+          for w in xrange(0, W, S):
+              for c in xrange(C):
+                  out[m, c, h / S, w / S] = np.max(x[m, c, h:h + Fh, w:w + Fw])
+    
   #############################################################################
   #                             END OF YOUR CODE                              #
   #############################################################################
@@ -305,7 +352,19 @@ def max_pool_backward_naive(dout, cache):
   # TODO: Implement the max pooling backward pass                             #
   #############################################################################
 
-  pass
+  x, pool_param = cache
+  M, C, H, W = x.shape
+  Fh, Fw, S = pool_param['pool_height'], pool_param['pool_width'], pool_param['stride']
+  M, C, H2, W2 = dout.shape
+  dx = np.zeros_like(x)
+
+  for m in xrange(M):
+      for h in xrange(0, H, S):
+          for w in xrange(0, W, S):
+              for c in xrange(C):
+                  maxh, maxw = np.unravel_index(np.argmax(x[m, c, h:h + Fh, w:w + Fw]), [Fh, Fw])
+                  dx[m, c, h + maxh, w + maxw] = dout[m, c, h / S, w / S]
+    
   #############################################################################
   #                             END OF YOUR CODE                              #
   #############################################################################
